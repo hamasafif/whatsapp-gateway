@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dashboard – WA Gate WR Junior</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="#22d3ee">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span>WA Gate WR Junior</span>
+      </div>
+
+      <nav>
+        <button onclick="scrollToId('send')" class="nav-link active">💬 Send Message</button>
+        <button onclick="scrollToId('broadcast')" class="nav-link">📢 Broadcast</button>
+        <button onclick="scrollToId('log')" class="nav-link">🧾 Log Pesan</button>
+      </nav>
+
+      <div class="side-foot">
+        Status: <b id="status">Checking...</b>
+        <!-- place right above the existing “Status:” line -->
+<div class="side-foot" style="margin-bottom:.5rem">
+  <span>📱 <b id="deviceNumber">-</b></span>
+  <span id="deviceStatus" style="float:right">❌</span>
+</div>
+        <button id="delSessionBtn" class="logout-btn" style="margin-top:0.5rem;background:#ef444420;color:#ef4444;border:1px solid #ef4444;border-radius:.5rem;padding:.4rem;font-size:.8rem;cursor:pointer">
+  🗑 Hapus Session
+</button>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1>Dashboard</h1>
+        <div class="top-right">
+          <span>Hi, Admin</span>
+          <button class="icon-btn" onclick="logout()">🚪</button>
+        </div>
+      </header>
+
+      <section id="send" class="card">
+        <h2 class="card-title">💬 Send Message</h2>
+        <div class="form-row">
+          <div>
+            <label class="form-label">Nomor (628xx)</label>
+            <input id="number" class="form-input" placeholder="6281234567890"/>
+          </div>
+          <div>
+            <label class="form-label">Pesan</label>
+            <textarea id="text" class="form-input" rows="2" placeholder="Tulis pesan..."></textarea>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button onclick="send('text')" class="btn primary">Kirim Teks</button>
+          <button onclick="send('poll')" class="btn secondary">Polling</button>
+          <input id="file" type="file" hidden/>
+          <button onclick="document.getElementById('file').click()" class="btn secondary">Gambar</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">📱 WhatsApp QR</h2>
+        <div id="qrbox" class="qr-box hidden"><canvas id="qrcanvas"></canvas></div>
+        <p id="qrstatus" class="qr-status">Menghubungkan...</p>
+      </section>
+
+      <section id="broadcast" class="card">
+        <h2 class="card-title">📢 Broadcast</h2>
+        <textarea id="bcnumbers" class="form-input" rows="3" placeholder="628111,628222,628333"></textarea>
+        <textarea id="bcmsg" class="form-input mt-2" rows="3" placeholder="Isi pesan broadcast..."></textarea>
+        <button onclick="broadcast()" class="btn primary mt-3">Kirim Broadcast</button>
+      </section>
+
+      <section id="log" class="card">
+        <h2 class="card-title">🧾 Log Pesan</h2>
+        <pre id="log" class="log-box"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Login – WA Gate WR Junior</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <div class="login-brand">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="#22d3ee">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      <h1>WA Gate WR Junior</h1>
+      <p>Gateway WhatsApp Profesional</p>
+    </div>
+
+    <form id="loginForm" autocomplete="off">
+      <label class="form-label">Username</label>
+      <input type="text" id="user" class="form-input" placeholder="admin" required/>
+
+      <label class="form-label">Password</label>
+      <div class="pwd-box">
+        <input type="password" id="pass" class="form-input" placeholder="••••••••" required/>
+        <span class="eye" onclick="togglePwd()">👁</span>
+      </div>
+
+      <button type="submit" class="btn primary">Login</button>
+      <!-- tambahkan di bawah tombol Login -->
+<div style="margin-top:1rem;font-size:.85rem;text-align:center">
+  Belum punya akun?
+  <a href="register.html" style="color:var(--accent)">Buat akun</a>
+</div>
+    </form>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

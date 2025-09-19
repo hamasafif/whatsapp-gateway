@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <title>Daftar – WA Gate</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <div class="login-brand">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="#22d3ee"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <h1>Daftar Akun Baru</h1>
+    </div>
+
+    <form id="regForm" autocomplete="off">
+      <label class="form-label">Username</label>
+      <input type="text" id="user" class="form-input" placeholder="pilih username" required/>
+
+      <label class="form-label">Password</label>
+      <div class="pwd-box">
+        <input type="password" id="pass" class="form-input" placeholder="min. 6 karakter" required minlength="6"/>
+        <span class="eye" onclick="togglePwd()">👁</span>
+      </div>
+
+      <button type="submit" class="btn primary">Daftar</button>
+      <div style="margin-top:1rem;font-size:.85rem;text-align:center">
+        Sudah punya akun? <a href="login.html" style="color:var(--accent)">Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('regForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = document.getElementById('user').value;
+      const pass = document.getElementById('pass').value;
+      const res = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user, pass })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert(data.msg);
+        location.href = '/login';
+      } else {
+        alert('Gagal: ' + data.error);
+      }
+    });
+    function togglePwd() {
+      const p = document.getElementById('pass');
+      p.type = p.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</body>
+</html>

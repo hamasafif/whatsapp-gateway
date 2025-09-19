@@ -1,0 +1,3 @@
+curl -X POST https://webhook.wrjunior.my.id/login \
+  -H "Content-Type: application/json" \
+  -d '{"user":"wrjunior","pass":"Hamas@fif13"}'
