@@ -84,17 +84,24 @@ function isWAConnected() {
 
 /* ----------  WEBHOOK  ---------- */
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
+const webhookURLs = [
+  process.env.WEBHOOK_URL,
+  process.env.WEBHOOK_URL2
+].filter(Boolean); // hindari undefined
 
 async function sendWebhook(data) {
-  try {
-    await fetch(webhookURL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-      agent: httpsAgent        // <-- di sini
-    });
-  } catch (e) {
-    console.log('❌ Webhook gagal:', e.message);
+  for (const url of webhookURLs) {
+    try {
+      await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        agent: httpsAgent
+      });
+      console.log(`✅ Webhook terkirim → ${url}`);
+    } catch (e) {
+      console.log(`❌ Webhook gagal → ${url} : ${e.message}`);
+    }
   }
 }
 
