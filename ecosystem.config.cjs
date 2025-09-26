@@ -10,7 +10,7 @@ module.exports = {
     env: {
       NODE_ENV: 'production',
       PORT: 5001,
-      WEBHOOK_URL: 'https://n8n.wrjunior.my.id/webhook-test/wa-in'
+      WEBHOOK_URL: 'https://n8n.webhook.kamu/webhook-test/wa-in'
     }
   }]
 };
