@@ -2,8 +2,8 @@
 import mysql from 'mysql2/promise';
 const pool = mysql.createPool({
   host            : 'localhost',
-  user            : 'wrjunior',
-  password        : 'Hamas@fif13',
+  user            : 'username',
+  password        : 'Sup3RPassword!',
   database        : 'wagateway',
   waitForConnections : true,
   connectionLimit    : 10
