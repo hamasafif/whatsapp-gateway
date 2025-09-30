@@ -10,18 +10,23 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. paired WhatsApp devices
-CREATE TABLE devices (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
-  number     VARCHAR(30) UNIQUE NOT NULL,   -- 62812xxx
-  pushname   VARCHAR(100),
-  status     ENUM('CONNECTED','DISCONNECTED') DEFAULT 'DISCONNECTED',
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+-- 2. paired WhatsApp devices (sudah pakai accesstoken)
+CREATE TABLE `devices` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `number` VARCHAR(50) NOT NULL,
+  `pushname` VARCHAR(255) NULL,
+  `status` VARCHAR(100) NULL,
+  `accesstoken` TEXT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 3. runtime JWT secret (so we can rotate without code change)
 CREATE TABLE settings (
   k VARCHAR(50)  PRIMARY KEY,
   v TEXT
 );
-INSERT INTO settings(k,v) VALUES('jwt_secret', UUID());   -- random on first run
+
+-- Inisialisasi JWT secret pertama kali
+INSERT INTO settings(k,v) VALUES('jwt_secret', UUID());
