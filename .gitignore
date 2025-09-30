@@ -1,1 +1,47 @@
-node_modules/\n.env\n*.log\nsessions/\npm2.json
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+logs/*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build / cache
+dist/
+build/
+.cache/
+coverage/
+
+# Session & runtime files
+sessions/
+*.sqlite
+*.db
+*.db-journal
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Output / generated files
+output/
+*.docx
+*.xlsx
+
+# Custom
+mendapatkan token.txt
