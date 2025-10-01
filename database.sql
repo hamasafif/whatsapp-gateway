@@ -30,3 +30,13 @@ CREATE TABLE settings (
 
 -- Inisialisasi JWT secret pertama kali
 INSERT INTO settings(k,v) VALUES('jwt_secret', UUID());
+
+-- 4. API Keys (untuk akses dengan x-api-key)
+CREATE TABLE IF NOT EXISTS api_keys (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  `key` VARCHAR(255) NOT NULL UNIQUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Generate API key pertama kali dengan UUID
+INSERT INTO api_keys(`key`) VALUES (UUID());

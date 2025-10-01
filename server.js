@@ -223,7 +223,7 @@ app.post('/register', async (req, res) => {
 
 app.get('/register', (_, res) => res.sendFile(path.resolve('public/register.html')));
 app.get('/login', (_, res) => res.sendFile(path.resolve('public/login.html')));
-app.get('/', auth, (_, res) => res.sendFile(path.resolve('public/index.html')));
+app.get('/', auth, (_, res) => res.sendFile(path.resolve('public/login.html')));
 app.post('/login', async (req, res) => {
   const { user, pass } = req.body;
   const usr = await checkUser(user, pass);

@@ -1,4 +1,5 @@
 # Node.js dependencies
+sessions/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
