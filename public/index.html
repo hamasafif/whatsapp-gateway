@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <title>WhatsApp Gateway 💬</title>
+          <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+          <div class="container">
+                    <header>
+                              <h1>WhatsApp Gateway 🚀</h1>
+                              <p id="statusBadge" class="badge">Menunggu koneksi...</p>
+                              <div class="actions">
+                                        <button id="clearBtn" class="danger-btn">🗑️ Hapus Session</button>
+                                        <button id="clearLogsBtn" class="warn-btn">🧹 Hapus Chat Logs</button>
+                              </div>
+                    </header>
+
+
+
+                    <div id="qrArea" class="qr-area"></div>
+
+                    <section class="chat-box">
+                              <ul id="logList"></ul>
+                    </section>
+
+                    <section class="send-box">
+                              <input id="number" type="text" placeholder="Nomor WhatsApp (628xxxxx)" />
+                              <textarea id="message" placeholder="Tulis pesan kamu di sini..."></textarea>
+                              <button id="sendBtn">Kirim ✉️</button>
+                    </section>
+          </div>
+
+          <script src="/socket.io/socket.io.js"></script>
+          <script src="main.js"></script>
+</body>
+
+</html>

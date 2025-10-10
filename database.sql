@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS wagateway;
+
+USE wagateway;
+
+CREATE TABLE IF NOT EXISTS messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  from_number VARCHAR(255),
+  to_number VARCHAR(255),
+  body TEXT,
+  message_id VARCHAR(255),
+  is_group BOOLEAN DEFAULT 0,
+  direction VARCHAR(20),
+  source VARCHAR(50) DEFAULT 'UNKNOWN',
+  raw LONGTEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,34 @@
+# 📦 Dependencies
+/node_modules
+/package-lock.json
+
+# ⚙️ Environment
+.env
+
+# 🧠 WhatsApp LocalAuth (session data)
+.wwebjs_auth
+.wwebjs_cache
+/sessions
+
+# 🧾 Logs
+logs
+*.log
+
+# 🧱 Build files or temp
+/temp
+/tmp
+*.tmp
+*.bak
+
+# 💻 System files
+.DS_Store
+Thumbs.db
+
+# 🧑‍💻 IDE files
+.vscode/
+.idea/
+
+# 🚫 Optional backups
+*.zip
+*.rar
+*.tar.gz
