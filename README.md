@@ -242,4 +242,4 @@ Silakan fork project ini dan bantu kembangkan fitur seperti multi-device, multi-
 
 ## 🧾 Lisensi
 
-MIT License © 2025 — [yourusername](https://github.com/yourusername)
+MIT License © 2025 — [wrjunior](https://github.com/hamasafif)
